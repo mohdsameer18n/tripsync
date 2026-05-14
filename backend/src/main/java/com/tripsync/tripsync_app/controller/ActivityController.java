@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/activities")
-@CrossOrigin(origins="http://localhost:5173")
+@CrossOrigin(origins="*")
 public class ActivityController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class ActivityController {
     // Add activity
     @PostMapping("/{destinationId}")
     public ResponseEntity<?> addActivity(@PathVariable Long destinationId,
-                                         @RequestBody Activity activity) {
+                                        @RequestBody Activity activity) {
         try {
             return ResponseEntity.status(201)
                     .body(activityService.addActivity(destinationId, activity));
